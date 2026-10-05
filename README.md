@@ -553,4 +553,4 @@ The AWS VPC Resource Map confirms the VPC, subnet, route table, and Internet Gat
 
 ![VPC resource map](03-vpc-resource-map.png)
 
-> **Hands-on evidence:** These screenshots document the actual AWS/Terraform implementation and verification of this project.
+
