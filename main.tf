@@ -110,7 +110,14 @@ output "public_ip" {
   value = aws_instance.web.public_ip
 }
 
-
+terraform {
+  backend "s3" {
+    bucket       = "mini-project-02-terraform-state"
+    key          = "mini-project-02/terraform.tfstate"
+    region       = "ap-south-1"
+    use_lockfile = true
+  }
+}
 
 
 
