@@ -553,4 +553,8 @@ The AWS VPC Resource Map confirms the VPC, subnet, route table, and Internet Gat
 
 ![VPC resource map](03-vpc-resource-map.png)
 
+### 4. S3 Backend 
+Configured S3 Backend to store state in AWS S3 bucket.
+<img width="1562" height="463" alt="Screenshot From 2026-10-06 08-16-38" src="https://github.com/user-attachments/assets/e59a6847-b0cf-40be-8ff1-1a778503b247" />
+
 
