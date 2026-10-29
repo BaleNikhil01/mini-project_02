@@ -30,35 +30,6 @@ Create / Change / Destroy
 | **Module** | Reusable collection of Terraform code. |
 | **State** | Records information about infrastructure Terraform manages. |
 
-### Resource vs Data Source
-
-```hcl
-resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
-}
-```
-
-**Resource → create/manage**
-
-```hcl
-data "aws_vpc" "default" {
-  default = true
-}
-```
-
-**Data source → read/find**
-
-You are telling Terraform:
-
-> "Find the existing default VPC. I don't want Terraform to create it."
-
-Then:
-
-```hcl
-vpc_id = data.aws_vpc.default.id
-```
-
-**Interview distinction:** `resource` creates/manages; `data` reads/finds.
 
 ### Variables
 
@@ -98,22 +69,6 @@ terraform output public_ip
 ## 2. Terraform Dependency Graph
 
 Terraform automatically builds a dependency graph from resource references.
-
-Example:
-
-```hcl
-vpc_id = aws_vpc.main.id
-```
-
-This tells Terraform:
-
-```text
-VPC
- ↓
-Subnet
-```
-
-The subnet depends on the VPC.
 
 You **do not manually define the creation order**. Terraform determines it from dependencies.
 
@@ -171,14 +126,6 @@ It is **not simply a backup of your AWS infrastructure**.
 
 Terraform uses state when determining what needs to change.
 
-For example, after six resources were created successfully and EC2 failed, a later `terraform apply` created only the missing EC2:
-
-```text
-6 resources → already managed
-EC2         → missing
-                 ↓
-              create only EC2
-```
 
 ---
 
