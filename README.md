@@ -142,13 +142,9 @@ Terraform uses state when determining what needs to change.
                     10.0.1.0/24
                             │
                     ┌───────┴───────┐
-                    │     EC2      │
-                    │  t3.micro    │
-                    │ Private IP   │
-                    │ 10.0.1.156   │
-                    │ Public IP    │
-                    │ 13.201.51.215│
-                    └──────────────┘
+                    │     EC2       │
+                    │  t3.micro     │
+                    └─────────────-─┘
                             │
                     Security Group
 ```
